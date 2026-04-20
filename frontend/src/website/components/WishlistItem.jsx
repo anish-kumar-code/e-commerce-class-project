@@ -1,6 +1,7 @@
-import { FiPlus, FiMinus, FiTrash2 } from "react-icons/fi";
+import { Link } from "react-router";
+import { FiTrash2, FiShoppingCart } from "react-icons/fi";
 
-const CartItem = ({ item, onIncrease, onDecrease, onRemove }) => {
+const WishlistItem = ({ item, onRemove, onAddToCart }) => {
     return (
         <div className="flex gap-4 bg-white p-4 rounded-xl shadow-sm">
 
@@ -16,7 +17,6 @@ const CartItem = ({ item, onIncrease, onDecrease, onRemove }) => {
             {/* Content */}
             <div className="flex-1 flex flex-col justify-between">
 
-                {/* Top */}
                 <div>
                     <h3 className="font-semibold text-sm md:text-base">
                         {item.title}
@@ -27,7 +27,6 @@ const CartItem = ({ item, onIncrease, onDecrease, onRemove }) => {
                     </p>
                 </div>
 
-                {/* Bottom */}
                 <div className="flex items-center justify-between mt-3">
 
                     {/* Price */}
@@ -35,42 +34,33 @@ const CartItem = ({ item, onIncrease, onDecrease, onRemove }) => {
                         ₹{item.price}
                     </span>
 
-                    {/* Quantity Controls */}
-                    <div className="flex items-center gap-2">
+                    {/* Actions */}
+                    <div className="flex items-center gap-3">
 
+                        {/* Add to Cart */}
                         <button
-                            onClick={() => onDecrease(item.id)}
-                            className="p-2 border rounded-md hover:bg-gray-100"
+                            onClick={() => onAddToCart(item)}
+                            className="flex items-center gap-2 bg-black text-white px-3 py-2 rounded-lg text-sm hover:bg-gray-800 transition"
                         >
-                            <FiMinus size={14} />
+                            <FiShoppingCart size={14} />
+                            Add
                         </button>
 
-                        <span className="px-2 text-sm font-medium">
-                            {item.quantity}
-                        </span>
-
+                        {/* Remove */}
                         <button
-                            onClick={() => onIncrease(item.id)}
-                            className="p-2 border rounded-md hover:bg-gray-100"
+                            onClick={() => onRemove(item.id)}
+                            className="text-red-500 hover:text-red-600"
                         >
-                            <FiPlus size={14} />
+                            <FiTrash2 size={18} />
                         </button>
 
                     </div>
 
-                    {/* Remove */}
-                    <button
-                        onClick={() => onRemove(item.id)}
-                        className="text-red-500 hover:text-red-600"
-                    >
-                        <FiTrash2 size={18} />
-                    </button>
-
                 </div>
-            </div>
 
+            </div>
         </div>
     );
 };
 
-export default CartItem;
+export default WishlistItem;

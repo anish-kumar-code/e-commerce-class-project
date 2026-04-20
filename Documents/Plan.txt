@@ -1,0 +1,51 @@
+REACT
+----------
+
+Project -> Industry Folder Structure -> AI
+--------------------------------------------
+E-commerce
+------------
+WEBISTE
+---------
+HOME => Header, Slider, Category, Tags wise Product, Footer		
+SHOP PAGE => Filter System, Product Listing
+PRODUCT DETAILS PAGE => Product Image in slider, Product details
+CART => Product Listing, Quantity manage, Total Price
+WISHLIST PAGE => Product Listing
+ERROR PAGE => Error
+LOGIN PAGE => Login Form => Email, Password
+SINGUP PAGE => Signup Form => Name, Email, Mobile NO, Password
+CHECKOUT PAGE => Address, Coupon, Payment Gateway
+USER PROFILE => User Information, Address manage, Wallet, Order Manage, Cart, Wishlist
+
+ADMIN
+-------
+SLIDER MANAGE => Add, Edit, Delete, List
+PRODUCT MANAGE => Add, Edit, Delete, List
+CATEGORY MANAGE => Add, Edit, Delete, List
+COUPON MANAGE => Add, Edit, Delete, List
+ORDER MANAGE => List of order, filter, Order status manage
+USER MANAGE => List of user, block/unblock, details
+SETTING => Change password, Details, Admin logs
+
+
+Tech Stack
+------------
+frontend
+React, Tailwind-css, React Router(7), Ant Design 
+
+backend
+Node, Express, MongoDB, Multer
+
+
+
+
+
+
+
+
+
+
+
+
+
