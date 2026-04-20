@@ -10,7 +10,7 @@ const ProductCard = ({ product }) => {
             : product.description;
 
     return (
-        <div className="bg-white rounded-2xl shadow-sm hover:shadow-md transition overflow-hidden group cursor-pointer">
+        <div className="bg-white rounded-2xl border transition overflow-hidden group cursor-pointer">
 
             {/* Image Wrapper */}
             <div className="relative w-full h-56 overflow-hidden">
