@@ -14,7 +14,7 @@ import { useNavigate, useLocation } from "react-router";
 
 const { Sider } = Layout;
 
-const AdminSidebar = () => {
+const AdminSidebar = ({ collapsed }) => {
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -133,6 +133,7 @@ const AdminSidebar = () => {
         <Sider
             breakpoint="lg"
             collapsedWidth="80"
+            collapsed={collapsed}
             style={{ minHeight: "100vh" }}
         >
             <div className="text-white text-xl font-bold text-center py-4">

@@ -16,6 +16,12 @@ import AddProduct from './admin/pages/AddProduct'
 import EditProduct from './admin/pages/EditProduct'
 import AllProduct from './admin/pages/AllProduct'
 import AdminLayout from './admin/components/AdminLayout'
+import AddSlider from './admin/pages/AddSlider'
+import AllSlider from './admin/pages/AllSlider'
+import AddCategory from './admin/pages/AddCategory'
+import AllCategory from './admin/pages/AllCategory'
+import AddCoupon from './admin/pages/AddCoupon'
+import AllCoupon from './admin/pages/AllCoupon'
 
 function App() {
   return (
@@ -41,6 +47,12 @@ function App() {
           <Route path='add-product' element={<AddProduct />} />
           <Route path='edit-product' element={<EditProduct />} />
           <Route path='all-product' element={<AllProduct />} />
+          <Route path='add-slider' element={<AddSlider />} />
+          <Route path='all-slider' element={<AllSlider />} />
+          <Route path='add-category' element={<AddCategory />} />
+          <Route path='all-category' element={<AllCategory />} />
+          <Route path='add-coupon' element={<AddCoupon />} />
+          <Route path='all-coupon' element={<AllCoupon />} />
 
         </Route>
 
