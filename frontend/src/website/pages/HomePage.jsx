@@ -38,19 +38,6 @@ const HomePage = () => {
         </section>
 
         {/* Featured Products */}
-        {/* <section className="max-w-7xl mx-auto px-4 py-12">
-          <h2 className="text-2xl font-bold mb-6">
-            Featured Products
-          </h2>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {products.map((item) => (
-              <ProductCard key={item.id} product={item} />
-            ))}
-          </div>
-        </section> */}
-
-        {/* Featured Products */}
         <section className="max-w-7xl mx-auto px-4 py-12 relative">
 
           <div className="flex items-center justify-between mb-6">

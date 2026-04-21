@@ -10,6 +10,12 @@ import SignupPage from './website/pages/SignupPage'
 import UserProfile from './website/pages/UserProfile'
 import CheckoutPage from './website/pages/CheckoutPage'
 import ErrorPage from './website/pages/ErrorPage'
+import Dashboard from './admin/pages/Dashboard'
+import Login from './admin/pages/Login'
+import AddProduct from './admin/pages/AddProduct'
+import EditProduct from './admin/pages/EditProduct'
+import AllProduct from './admin/pages/AllProduct'
+import AdminLayout from './admin/components/AdminLayout'
 
 function App() {
   return (
@@ -17,13 +23,28 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/shop' element={<ShopPage />} />
-        <Route path='/product' element={<ProductDetailsPage />} />
+        <Route path='/product/:id' element={<ProductDetailsPage />} />
         <Route path='/cart' element={<CartPage />} />
         <Route path='/wishlist' element={<WishlistPage />} />
         <Route path='/checkout' element={<CheckoutPage />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/signup' element={<SignupPage />} />
         <Route path='/user' element={<UserProfile />} />
+
+
+
+        <Route path='/admin/login' element={<Login />} />
+
+        <Route path='/admin' element={<AdminLayout />}>
+
+          <Route path='dashboard' element={<Dashboard />} />
+          <Route path='add-product' element={<AddProduct />} />
+          <Route path='edit-product' element={<EditProduct />} />
+          <Route path='all-product' element={<AllProduct />} />
+
+        </Route>
+
+
 
 
 
