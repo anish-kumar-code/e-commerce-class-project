@@ -99,7 +99,7 @@ function AllProduct() {
                     {/* VIEW */}
                     <Button
                         icon={<EyeOutlined />}
-                        onClick={() => navigate(`/product/${record.key}`)}
+                        onClick={() => navigate(`/admin/product/${record.key}`)}
                     />
 
                     {/* EDIT */}

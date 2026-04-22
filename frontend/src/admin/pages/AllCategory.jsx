@@ -63,7 +63,7 @@ function AllCategory() {
                     <Button
                         icon={<EditOutlined />}
                         onClick={() =>
-                            navigate(`/admin/edit-slider?id=${record.key}`)
+                            navigate(`/admin/edit-category?id=${record.key}`)
                         }
                     />
 

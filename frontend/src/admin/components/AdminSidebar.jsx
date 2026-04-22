@@ -122,7 +122,7 @@ const AdminSidebar = ({ collapsed }) => {
                     label: "Change Password",
                 },
                 {
-                    key: "/admin/admin-logs",
+                    key: "/admin/logs",
                     label: "Admin Logs",
                 },
             ],
