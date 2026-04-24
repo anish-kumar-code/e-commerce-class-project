@@ -1,9 +1,10 @@
 import dotenv from 'dotenv'
+// Load environment variables
+dotenv.config({ path: 'config.env' })
+
 import app from './src/app.js'
 import connectDatabase from './src/config/database.js';
 
-// Load environment variables
-dotenv.config({ path: 'config.env' })
 
 // Connect to the database
 connectDatabase();

@@ -3,7 +3,7 @@ import cors from 'cors';
 
 import morgan from 'morgan';
 // import adminRouter from './routes/adminRoutes.js';
-// import webRouter from './routes/webRoutes.js';
+import webRouter from './routes/websiteRoutes.js';
 // import mobileRouter from './routes/mobileRoutes.js';
 import cookieParser from 'cookie-parser';
 
@@ -27,7 +27,7 @@ app.get('/api/test', (req, res) => {
 
 // All routes
 // app.use('/api/admin', adminRouter)
-// app.use('/api/web', webRouter)
+app.use('/api/web', webRouter)
 // app.use('/api/mobile', mobileRouter)
 
 
