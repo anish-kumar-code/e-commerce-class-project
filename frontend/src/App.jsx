@@ -78,7 +78,7 @@ function App() {
 
           <Route path='add-category' element={<AddCategory />} />
           <Route path='all-category' element={<AllCategory />} />
-          <Route path='edit-category' element={<EditCategory />} />
+          <Route path='edit-category/:id' element={<EditCategory />} />
 
           <Route path='add-coupon' element={<AddCoupon />} />
           <Route path='all-coupon' element={<AllCoupon />} />

@@ -6,31 +6,57 @@ import {
     Upload,
     Card,
     message,
+    Switch,
 } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import ImgCrop from "antd-img-crop";
+import { useNavigate } from "react-router";
+import { addCategoryAPI } from "../services/categoryServices";
 
 function AddCategory() {
     const [form] = Form.useForm();
-    const [fileList, setFileList] = useState([]);
+    const navigate = useNavigate();
 
-    // ✅ Upload handler
+    const [fileList, setFileList] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    // ==============================
+    // IMAGE UPLOAD HANDLER
+    // ==============================
     const onChange = ({ fileList: newFileList }) => {
-        setFileList(newFileList.slice(-1)); // only 1 image
+        setFileList(newFileList.slice(-1));
     };
 
-    // ✅ Submit
-    const onFinish = (values) => {
-        if (fileList.length === 0) {
-            return message.error("Please upload category image");
+    // ==============================
+    // FORM SUBMIT
+    // ==============================
+    const onFinish = async (values) => {
+        try {
+            if (fileList.length === 0) {
+                return message.error("Please upload category image");
+            }
+
+            setLoading(true);
+
+            const formData = new FormData();
+            formData.append("name", values.name);
+            formData.append("status", values.status ?? true);
+            formData.append("image", fileList[0].originFileObj);
+
+            const res = await addCategoryAPI(formData);
+
+            if (res.success) {
+                message.success(res.message || "Category added successfully");
+                form.resetFields();
+                setFileList([]);
+                navigate("/admin/all-category");
+            }
+
+        } catch (error) {
+            message.error(error.response?.data?.message || "Failed to add category");
+        } finally {
+            setLoading(false);
         }
-
-        console.log("Form Data:", values);
-        console.log("Image:", fileList);
-
-        message.success("Category added successfully");
-        form.resetFields();
-        setFileList([]);
     };
 
     return (
@@ -42,8 +68,11 @@ function AddCategory() {
                 layout="vertical"
                 form={form}
                 onFinish={onFinish}
+                initialValues={{
+                    status: true
+                }}
             >
-                {/* NAME */}
+                {/* CATEGORY NAME */}
                 <Form.Item
                     label="Category Name"
                     name="name"
@@ -54,9 +83,18 @@ function AddCategory() {
                     <Input placeholder="Enter Category name" />
                 </Form.Item>
 
+                {/* STATUS */}
+                <Form.Item
+                    label="Status"
+                    name="status"
+                    valuePropName="checked"
+                >
+                    <Switch checkedChildren="Active" unCheckedChildren="Inactive" />
+                </Form.Item>
+
                 {/* IMAGE */}
                 <Form.Item label="Category Image" required>
-                    <ImgCrop aspect={1 / 1} rotationCategory>
+                    <ImgCrop aspect={1 / 1}>
                         <Upload
                             listType="picture-card"
                             fileList={fileList}
@@ -74,13 +112,18 @@ function AddCategory() {
                     </ImgCrop>
 
                     <p style={{ color: "#999" }}>
-                        Image ratio: 16:9 • Crop enabled
+                        Image upload with crop enabled
                     </p>
                 </Form.Item>
 
                 {/* SUBMIT */}
                 <Form.Item>
-                    <Button type="primary" htmlType="submit" block>
+                    <Button
+                        type="primary"
+                        htmlType="submit"
+                        block
+                        loading={loading}
+                    >
                         Add Category
                     </Button>
                 </Form.Item>
